@@ -2,14 +2,17 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: app
-  namespace: default
+  namespace: app
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: default
+    namespace: app
     server: {{ .Values.spec.destination.server }}
   project: default
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
   source:
     path: .
     repoURL: https://github.com/GodsVictory/app
