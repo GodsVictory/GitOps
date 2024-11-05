@@ -11,6 +11,6 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    repoURL: https://raw.githubusercontent.com/GodsVictory/app/refs/heads/main/chart/
+    repoURL: https://raw.githubusercontent.com/GodsVictory/app/refs/heads/main/
     chart: app
-    targetRevision: 0.0.1
+    targetRevision: HEAD
