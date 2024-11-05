@@ -12,5 +12,5 @@ spec:
   project: default
   source:
     repoURL: https://github.com/GodsVictory/app.git
-    path: /
+    chart: app
     targetRevision: HEAD
