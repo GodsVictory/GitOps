@@ -13,4 +13,4 @@ spec:
   source:
     repoURL: https://github.com/GodsVictory/app.git
     chart: app
-    targetRevision: HEAD
+    targetRevision: 0.0.1
