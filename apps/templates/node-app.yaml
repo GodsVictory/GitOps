@@ -11,6 +11,9 @@ spec:
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: "."
+    path: .
     repoURL: https://github.com/GodsVictory/app
     targetRevision: HEAD
+    helm:
+      valueFiles:
+      - values.yaml
