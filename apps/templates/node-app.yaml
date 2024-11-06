@@ -16,7 +16,7 @@ spec:
     - CreateNamespace=true
   source:
     path: .
-    repoURL: https://github.com/GodsVictory/app
+    repoURL: https://github.com/GodsVictory/helm-nodejs
     targetRevision: HEAD
     helm:
       valueFiles:
