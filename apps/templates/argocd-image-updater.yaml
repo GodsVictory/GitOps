@@ -19,9 +19,10 @@ spec:
     repoURL: https://argoproj.github.io/argo-helm
     targetRevision: 0.11.1
     helm:
-      valueObject:config:
-        argocd:
-          grpcWeb: false
-          serverAddress: "http://argocd.home"
-          insecure: true
-          plaintext: true
+      valueObject:
+        config:
+          argocd:
+            grpcWeb: false
+            serverAddress: "http://argocd.home"
+            insecure: true
+            plaintext: true
