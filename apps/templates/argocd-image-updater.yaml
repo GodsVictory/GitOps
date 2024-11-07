@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: app=ghcr.io/godsvictory/app
+    argocd-image-updater.argoproj.io/app.update-strategy: latest
+  name: argocd-image-updater
+  namespace: default
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: argocd
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+  source:
+    path: helm
+    repoURL: https://argoproj.github.io/argo-helm
+    targetRevision: 0.11.1
+    helm:
+      valueObject:config:
+        argocd:
+          grpcWeb: false
+          serverAddress: "http://argocd.home"
+          insecure: true
+          plaintext: true
