@@ -23,4 +23,4 @@ spec:
       - values-prod.yaml
       parameters:
       - name: "image.tag"
-        value: $ARGOCD_APP_REVISION
+        value: $ARGOCD_APP_SOURCE_TARGET_REVISION
