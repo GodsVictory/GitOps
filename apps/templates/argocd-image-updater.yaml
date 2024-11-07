@@ -18,7 +18,7 @@ spec:
     syncOptions:
     - CreateNamespace=true
   source:
-    path: helm
+    chart: argocd-image-updater
     repoURL: https://argoproj.github.io/argo-helm
     targetRevision: 0.11.1
     helm:
