@@ -21,3 +21,6 @@ spec:
     helm:
       valueFiles:
       - values-test.yaml
+      parameters:
+      - name: "image.tag"
+        value: $ARGOCD_APP_REVISION
