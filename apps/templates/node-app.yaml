@@ -15,7 +15,7 @@ spec:
     syncOptions:
     - CreateNamespace=true
   source:
-    path: .
+    path: helm
     repoURL: https://github.com/GodsVictory/app
     targetRevision: HEAD
     helm:
