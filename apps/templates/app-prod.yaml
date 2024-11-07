@@ -17,7 +17,7 @@ spec:
   source:
     path: helm
     repoURL: https://github.com/GodsVictory/app
-    targetRevision: 1.0.2
+    targetRevision: v1.0.9
     helm:
       valueFiles:
       - values-prod.yaml
