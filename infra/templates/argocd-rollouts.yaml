@@ -16,5 +16,5 @@ spec:
     - CreateNamespace=true
   source:
     repoURL: https://argoproj.github.io/argo-helm
-    chart: argo/argo-rollouts
+    chart: argo-rollouts
     targetRevision: 2.37.8
