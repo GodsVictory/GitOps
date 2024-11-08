@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-rollouts
+  namespace: default
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: default
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  syncPolicy:
+    automated: {}
+    syncOptions:
+    - CreateNamespace=true
+  source:
+    repoURL: https://argoproj.github.io/argo-helm
+    chart: argo/argo-rollouts
+    targetRevision: 2.37.8
