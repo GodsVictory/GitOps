@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: apps
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+  - git:
+      repoURL: '{{- $.Values.root.source.repoURL }}'
+      revision: '{{- $.Values.root.source.revision }}'
+      directories: '{{- $.Values.root.source.directories }}'
+  template:
+    metadata:
+      name: 'apps'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/infra-team/cluster-deployments.git
+        targetRevision: HEAD
+        path: guestbook/{{.cluster}}
+      destination:
+        namespace: default
+        server: {{ .Values.spec.destination.server }}

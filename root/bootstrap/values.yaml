@@ -1,0 +1,6 @@
+root:
+  source:
+    repoURL: https://github.com/GodsVictory/GitOps.git
+    revision: main
+    directories:
+    - path: apps/templates/*

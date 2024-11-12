@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-dev
+  name: abc-{{ .Values.env }}
   namespace: default
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: app-dev
+    namespace: abc-{{ .Values.env }}
     server: {{ .Values.spec.destination.server }}
   project: default
   syncPolicy:
@@ -17,11 +17,11 @@ spec:
     - CreateNamespace=true
   source:
     path: helm
-    repoURL: https://github.com/GodsVictory/app
-    targetRevision: HEAD
+    repoURL: https://github.com/GodsVictory/abc.git
+    targetRevision: {{ get .Values.abc.versions .Values.env}}
     helm:
       valueFiles:
-      - values-dev.yaml
+      - values-{{ .Values.env }}.yaml
       parameters:
       - name: "image.tag"
         value: $ARGOCD_APP_REVISION
