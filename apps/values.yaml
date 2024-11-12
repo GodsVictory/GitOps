@@ -5,4 +5,4 @@ abc:
   versions:
     dev: main
     test: v1.1.6
-    prod: v1.1.3
+    prod: v1.1.6
