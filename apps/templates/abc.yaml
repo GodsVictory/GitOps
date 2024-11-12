@@ -24,4 +24,8 @@ spec:
       - values-{{ .Values.env }}.yaml
       parameters:
       - name: "image.tag"
-        value: {{ eq .Values.env "dev" | "$ARGOCD_APP_REVISION" "$ARGOCD_APP_SOURCE_TARGET_REVISION" }}
+        {{- if eq .Values.env "dev" }}
+        value: $ARGOCD_APP_REVISION
+        {{- else }}
+        value: $ARGOCD_APP_SOURCE_TARGET_REVISION
+        {{- end }}
