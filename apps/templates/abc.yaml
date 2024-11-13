@@ -29,3 +29,6 @@ spec:
         {{- else }}
         value: $ARGOCD_APP_SOURCE_TARGET_REVISION
         {{- end }}
+      - name: "ingress.hosts"
+        value:
+        - "{{ .Values.env }}.abc.local"
