@@ -27,7 +27,7 @@ spec:
         {{- if eq .Values.env "dev" }}
         value: $ARGOCD_APP_REVISION
         {{- else }}
-        value: $ARGOCD_APP_SOURCE_TARGET_REVISION
+        value: {{ get .Values.abc.versions .Values.env}}
         {{- end }}
       - name: "ingress.hosts"
         value: "{ {{ .Values.env }}.abc.local }"
