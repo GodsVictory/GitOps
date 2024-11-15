@@ -4,10 +4,10 @@ spec:
 abc:
   versions:
     dev: main
-    test: v2.0.0
-    prod: v2.0.0
+    test: v2.0.1
+    prod: v2.0.1
 xyz:
   versions:
     dev: main
-    test: v2.0.0
-    prod: v2.0.0
+    test: v2.0.1
+    prod: v2.0.1
