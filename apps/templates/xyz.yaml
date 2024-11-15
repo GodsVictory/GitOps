@@ -25,9 +25,10 @@ spec:
       parameters:
       - name: "image.tag"
         {{- if eq .Values.env "dev" }}
+        # this variable is the latest git commit hash as the override for the apps helm chart image tag
         value: $ARGOCD_APP_REVISION
         {{- else }}
-        value: $ARGOCD_APP_SOURCE_TARGET_REVISION
+        value: {{ get .Values.xyz.versions .Values.env}}
         {{- end }}
       - name: "ingress.hosts"
         value: "{ {{ .Values.env }}.xyz.local }"
