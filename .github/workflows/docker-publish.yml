@@ -5,11 +5,7 @@ name: Docker
 # separate terms of service, privacy policy, and support
 # documentation.
 
-on:
-  workflow_call:
-    secrets:
-      GITHUB_TOKEN:
-        required: true
+on: workflow_call
 
 env:
   # Use docker.io for Docker Hub if empty
