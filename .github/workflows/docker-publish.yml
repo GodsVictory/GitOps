@@ -5,14 +5,17 @@ name: Docker
 # separate terms of service, privacy policy, and support
 # documentation.
 
-on: workflow_call
+on:
+  workflow_call:
+    secrets:
+      GITHUB_TOKEN:
+        required: true
 
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-
 
 jobs:
         
